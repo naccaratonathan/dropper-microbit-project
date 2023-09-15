@@ -13,7 +13,7 @@ basic.forever(function () {
     drop.turn(Direction.Right, 90)
     for (let index = 0; index < 4; index++) {
         drop.move(1)
-        basic.pause(750)
+        basic.pause(200)
         if (bucket.isTouching(drop)) {
             game.addScore(1)
             drop.delete()
@@ -32,7 +32,13 @@ basic.forever(function () {
         ), music.PlaybackMode.UntilDone)
         drop.delete()
         basic.clearScreen()
-        basic.showString("GAME OVER")
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
         basic.showString("" + (game.score()))
     }
 })
