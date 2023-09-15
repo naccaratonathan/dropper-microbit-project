@@ -17,7 +17,7 @@ def on_forever():
     drop.turn(Direction.RIGHT, 90)
     for index in range(4):
         drop.move(1)
-        basic.pause(750)
+        basic.pause(225)
         if bucket.is_touching(drop):
             game.add_score(1)
             drop.delete()
@@ -33,6 +33,12 @@ def on_forever():
             music.PlaybackMode.UNTIL_DONE)
         drop.delete()
         basic.clear_screen()
-        basic.show_string("GAME OVER")
+        basic.show_leds("""
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            """)
         basic.show_string("" + str((game.score())))
 basic.forever(on_forever)
