@@ -40,5 +40,6 @@ basic.forever(function () {
             # . . . #
             `)
         basic.showString("" + (game.score()))
+        game.setScore(0)
     }
 })
